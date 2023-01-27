@@ -7,43 +7,43 @@ export interface InitialStateType {
 } 
 
 export interface TaskListType {
-    id: Number,
-    name: String,
-    open_tasks: Number,
-    completed_tasks: Number,
-    position: Number,
-    is_completed: Boolean,
-    is_trashed: Boolean,
+    id: number,
+    name: string,
+    open_tasks: number,
+    completed_tasks: number,
+    position: number,
+    is_completed: boolean,
+    is_trashed: boolean,
     tasksAppended: Array<TaskType>
 }
 
 export interface TaskType {
-    id: Number,
-    name: String,
-    open_tasks: Number,
-    completed_tasks: Number,
-    position: Number,
-    is_completed: Boolean,
-    is_trashed: Boolean,
-    task_list_id: Number,
-    start_on: String | null,
-    due_on: String | null,
-    labels: Array<Number>,
-    open_subtasks: Number,
-    comments_count: Number,
-    assignee: Array<Number>,
-    is_important: Boolean,
+    id: number,
+    name: string,
+    open_tasks: number,
+    completed_tasks: number,
+    position: number,
+    is_completed: boolean,
+    is_trashed: boolean,
+    task_list_id: number,
+    start_on: string | null,
+    due_on: string | null,
+    labels: Array<number>,
+    open_subtasks: number,
+    comments_count: number,
+    assignee: Array<number>,
+    is_important: boolean,
     labelsAppended: Array<LabelType>,
     assigneeAppended: Array<UserType>
 }
 
 export interface UserType {
-    id: Number,
+    id: number,
     name: string,
     avatar_url: string
 }
 
 export interface LabelType {
-    id: Number,
-    color: String
+    id: number,
+    color: string
 }

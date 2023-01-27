@@ -1,10 +1,8 @@
-import { TaskType, UserType } from "./sectionSliceType";
-
-export interface TaskListItemType {}
+import { LabelType, TaskType, UserType } from "./sectionSliceType";
 
 export interface TitleColumnType {
-  name: String;
-  tasksAppendedLength: Number;
+  name: string;
+  tasksAppendedLength: number;
 }
 
 export interface BoxSingleType {
@@ -12,11 +10,21 @@ export interface BoxSingleType {
 }
 
 export interface BoxTitleType {
-  name: String;
+  name: string;
 }
 
 export interface AvatarType {
-  start_on: String | null | undefined;
-  due_on: String | null | undefined;
+  start_on: string | null | undefined;
+  due_on: string | null | undefined;
   assigneeAppended: Array<UserType>;
+}
+
+export interface BoxBodyProp {
+  labelsAppended: Array<LabelType>;
+  comments_count: number;
+  open_subtasks: number;
+}
+
+export interface CompletedTasksProp {
+  completedTasks: Array<TaskType>;
 }

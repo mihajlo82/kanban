@@ -1,4 +1,4 @@
-import { TaskListType } from "./sectionSliceType"
+import { TaskListType, TaskType } from "./sectionSliceType"
 
 export interface ReducerType {
     state: StateTypes 
@@ -9,5 +9,7 @@ export interface StateTypes {
 }
 
 export interface StateSubTypes {
-    taskList: Array<TaskListType>  
+    taskList: Array<TaskListType>,
+    completedTasks: Array<TaskType>
+
 }

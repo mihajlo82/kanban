@@ -2,9 +2,11 @@ import { createSlice } from '@reduxjs/toolkit';
 // import { InitialStateType, TodoItemType } from '../../types/todoSliceType';
 import { InitialStateType, TaskListType } from '../../types/sectionSliceType';
 import { getAllData, getAllTasks } from '../../service/get_data';
+import { getAllCompletedTasks } from '../../service/get_completed_tasks';
 
 const initialState = {
-   taskList: getAllData()
+   taskList: getAllData(),
+   completedTasks: getAllCompletedTasks()
 };
 
 export const sectionsSlice = createSlice({
@@ -13,10 +15,13 @@ export const sectionsSlice = createSlice({
   reducers: {
     getAllTasksList: (state = initialState): any => {
        return state.taskList;
+    },
+    addListToAllTasks: (state = initialState, action) => { 
+      state.taskList.push(action.payload);
+    },
+    addNewTask: (state = initialState, action) => {  
+          state.taskList.map(taskGroup => taskGroup.id === action.payload.task_list_id && taskGroup.tasksAppended.push(action.payload));
     }
-  //   addTodo: (state = initialState, action) => {
-  //     state.todoList.push(action.payload);
-  //   },
   //   removeTodo: (state = initialState, action) => {
   //     state.todoList = state.todoList.filter(x => x.id !== action.payload);
   //   },
@@ -35,29 +40,6 @@ export const sectionsSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { getAllTasksList } = sectionsSlice.actions
+export const { getAllTasksList, addListToAllTasks, addNewTask } = sectionsSlice.actions
 
 export default sectionsSlice.reducer;
-
-
-// const todos = (state = [], action) => {
-//     switch (action.type) {
-//       case "ADD_TODO":
-//         return [
-//           ...state,
-//           {
-//             id: action.id,
-//             complete: action.complete,
-//             text: action.text
-//           }
-//         ];
-//       case "TOGGLE_TODO":
-//         return state.map(
-//           todo =>
-//             todo.id === action.id ? { ...todo, complete: !todo.complete } : todo
-//         );
-//       default:
-//         return state;
-//     }
-//   };
-//   export default todos;
