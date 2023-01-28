@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { TitleColumnType } from "../../../types/cardSectionType";
+import { completeTask } from "../../../redux/slices/sectionsSlice";
 
-const TitleColumn = ({ name, tasksAppendedLength }: TitleColumnType) => {
+const TitleColumn = ({ taskListItem, name, tasksAppendedLength, dispatch }: TitleColumnType) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
     <div className="flex items-center flex-shrink-0 h-10 px-2 w-[273px] relative">
       <span className="block text-sm font-semibold">
         {name} - ({tasksAppendedLength})
-      </span>
-      {/* <span>{tasksAppendedLength}</span> */}
+      </span> 
 
       <button
         onClick={() => setOpenMenu((prev) => !prev)}
@@ -26,11 +26,11 @@ const TitleColumn = ({ name, tasksAppendedLength }: TitleColumnType) => {
 
       {openMenu && (
         <div className="absolute -bottom-14 w-[222px] -right-40 bg-white z-10 rounded-lg border-2	">
-          <div className="cursor-pointer hover:bg-violet-100 p-1 w-full flex flex-start pl-5">
+          <div className="cursor-pointer hover:bg-violet-100 p-1 w-full flex flex-start pl-5" onClick={()=>dispatch(completeTask(taskListItem))}>
             Complete
           </div>
           <div className="cursor-pointer hover:bg-violet-100 p-1 w-full flex flex-start pl-5">
-            Move to trash
+            Move to trash 
           </div>
         </div>
       )}

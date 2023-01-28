@@ -24,7 +24,7 @@ export interface TaskType {
     completed_tasks: number,
     position: number,
     is_completed: boolean,
-    is_trashed: boolean,
+   // is_trashed: boolean,
     task_list_id: number,
     start_on: string | null,
     due_on: string | null,

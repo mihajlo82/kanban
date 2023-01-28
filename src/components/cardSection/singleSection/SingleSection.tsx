@@ -1,10 +1,16 @@
+import { useState } from "react";
 import TitleColumn from "../titleColumn/TitleColumn";
 import BoxSingle from "../singleBox/BoxSingle";
 import { SingleSectionProp } from "../../../types/singleSectionType";
-import { useState } from "react";
 import AddTaskModal from "./modal/AddTaskModal";
+import { addItemToQueueForDelete } from "../../../redux/slices/sectionsSlice";
+import { useSelector, useDispatch } from "react-redux";
+import { StateTypes } from "../../../types/reducerType";
+import { removeTask } from "../../../redux/slices/sectionsSlice";
 
 const SingleSection = ({taskListItem}: SingleSectionProp ) => {
+  const itemForDelete = useSelector((state:StateTypes) => state.sections.itemDragRemove);
+  const dispatch = useDispatch();
   const [openAddTask, setOpenAddTask] = useState<boolean>(false);
 
   const {
@@ -16,22 +22,26 @@ const SingleSection = ({taskListItem}: SingleSectionProp ) => {
     is_completed,
     is_trashed,
     tasksAppended
-  } = taskListItem
-  console.log('SSETION');
-  console.log(taskListItem)
+  } = taskListItem;
+
+  const allowDrop = (e:any) => e.preventDefault();
+
+  const deleteItem = () => dispatch(removeTask(itemForDelete));
   return (
     <div className="flex flex-col  flex-shrink-0 w-72 h-[100%]">
-        <TitleColumn name={name} tasksAppendedLength={tasksAppended.length}/>
+        <TitleColumn taskListItem={taskListItem} name={name} tasksAppendedLength={tasksAppended.length} dispatch={dispatch} />
 
         <div className="flex flex-col w-72 overflow-auto pr-2">
-          {tasksAppended.map(task => <BoxSingle key={task.id} task={task} /> )}
+          {tasksAppended.map(task => !task.is_completed &&  <BoxSingle isDraggable={true} key={task.id} task={task} /> )}
         </div>
 
-        <button onClick={()=> setOpenAddTask(true)} type="button" className="text-blue-600">Add task</button>
+        <button onClick={()=> setOpenAddTask(true)} type="button" className="font-bold text-blue-600">Add task</button>
 
         {openAddTask && <AddTaskModal taskListId={taskListItem.id} setOpenAddTask={setOpenAddTask} />}
-        
 
+        <div className='fixed bottom-10 right-10'>
+           <div onDragOver={allowDrop} onDrop={deleteItem} className=' p-2 bg-[#ff00ff]'>TRASH</div>
+        </div>
     </div>
   )
 }

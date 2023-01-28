@@ -5,7 +5,7 @@ export const allLabelsInit = ALL_DATA.labels;
 let allTasks = ALL_DATA.tasks.sort((a, b) => a.position - b.position);
 export const allUsers = ALL_DATA.users;
 
-export const getAllData = () => {
+export const getAllListTasks = () => {
     const newData = tasksListInit.map(item => {
         const tasksInsideTaskList = appendTasksToTaskListById(item.id);
         return { ...item, tasksAppended: tasksInsideTaskList };

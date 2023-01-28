@@ -10,6 +10,8 @@ export interface StateTypes {
 
 export interface StateSubTypes {
     taskList: Array<TaskListType>,
-    completedTasks: Array<TaskType>
+    completedTasks: Array<TaskType>,
+    itemDragRemove: TaskType,
+    deletedItems: Array<TaskType>
 
 }

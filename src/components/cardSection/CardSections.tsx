@@ -13,6 +13,10 @@ const CardSections = () => {
     (state: StateTypes) => state.sections.completedTasks
   );
 
+  const deletedTasks = useSelector(
+    (state: StateTypes) => state.sections.deletedItems
+  );
+
   const dispatch = useDispatch(); 
 
   return (
@@ -29,7 +33,10 @@ const CardSections = () => {
 
         <AddNewSectionBtn dispatch={dispatch} />
 
-        <CompletedTasks completedTasks={completedTasks} />
+        <CompletedTasks completedTasks={completedTasks} deletedSection={false} />
+
+        <CompletedTasks completedTasks={deletedTasks} deletedSection={true} />
+
       </div>
     </div>
   );
