@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AddNewSectionBtnDefaultProps } from "../../../types/defaultProps/defaultProps";
 import AddSectionModal from "./modal/AddSectionModal";
 
 const AddNewSectionBtn = ({ dispatch }: any) => {
@@ -21,3 +22,4 @@ const AddNewSectionBtn = ({ dispatch }: any) => {
 };
 
 export default AddNewSectionBtn;
+AddNewSectionBtn.defaultProps = AddNewSectionBtnDefaultProps;

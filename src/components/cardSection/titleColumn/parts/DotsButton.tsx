@@ -1,9 +1,10 @@
 import { TitleColumnProp } from "../../../../types/cardSectionType";
+import { DotsButtonDefaultProp } from "../../../../types/defaultProps/defaultProps";
 
 const DotsButton = ({ setOpenMenu }: TitleColumnProp) => {
   return (
     <button
-      onMouseOver={() => setOpenMenu(true)} 
+      onMouseOver={() => setOpenMenu(true)}
       onClick={() => setOpenMenu((prev) => !prev)}
       className="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
     >
@@ -19,3 +20,4 @@ const DotsButton = ({ setOpenMenu }: TitleColumnProp) => {
 };
 
 export default DotsButton;
+DotsButton.defaultProps = DotsButtonDefaultProp;

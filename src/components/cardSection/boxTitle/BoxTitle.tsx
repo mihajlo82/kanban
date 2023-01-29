@@ -1,4 +1,5 @@
 import { BoxTitleType } from "../../../types/cardSectionType"
+import { BoxTitleDefaultProp } from "../../../types/defaultProps/defaultProps"
 
 const BoxTitle = ({name}: BoxTitleType) => {
   return (
@@ -7,3 +8,4 @@ const BoxTitle = ({name}: BoxTitleType) => {
 }
 
 export default BoxTitle
+BoxTitle.defaultProps = BoxTitleDefaultProp;

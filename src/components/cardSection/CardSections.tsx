@@ -8,7 +8,7 @@ import TrashSection from "./trash/TrashSection";
 import { useState } from "react";
 
 const CardSections = () => {
-  const [trashedVisible, setTrashedVisible] = useState<boolean>(true);
+  const [trashedVisible, setTrashedVisible] = useState<boolean>(false);
 
   const taskListAll = useSelector(
     (state: StateTypes) => state.sections.taskList

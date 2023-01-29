@@ -3,6 +3,7 @@ import {
   moveToTrash,
 } from "../../../../redux/slices/sectionsSlice";
 import { DotsMenuProp } from "../../../../types/cardSectionType";
+import { DotsMenuDefaultProp } from "../../../../types/defaultProps/defaultProps";
 
 const DotsMenu = ({ taskListItem, dispatch }: DotsMenuProp) => {
   return (
@@ -24,3 +25,4 @@ const DotsMenu = ({ taskListItem, dispatch }: DotsMenuProp) => {
 };
 
 export default DotsMenu;
+DotsMenu.defaultProps = DotsMenuDefaultProp;

@@ -1,4 +1,5 @@
 import { AddColumFormProp } from "../../../../types/cardSectionType";
+import { AddColumFormDefaultProp } from "../../../../types/defaultProps/defaultProps";
 import AddColumnForm from "./AddColumnForm";
 
 const AddSectionModal = ({ dispatch, setOpenModal }: AddColumFormProp) => {
@@ -25,3 +26,4 @@ const AddSectionModal = ({ dispatch, setOpenModal }: AddColumFormProp) => {
 };
 
 export default AddSectionModal;
+AddSectionModal.defaultProps = AddColumFormDefaultProp;

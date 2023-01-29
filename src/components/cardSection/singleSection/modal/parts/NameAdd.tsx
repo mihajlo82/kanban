@@ -1,4 +1,5 @@
 import React from 'react'
+import { AssingeesDefaultProp } from '../../../../../types/defaultProps/defaultProps';
 
 const NameAdd = ({dispatchCustomReducer}: any) => {
   return (
@@ -15,4 +16,5 @@ const NameAdd = ({dispatchCustomReducer}: any) => {
   )
 }
 
-export default NameAdd
+export default NameAdd;
+NameAdd.defaultProps = AssingeesDefaultProp;

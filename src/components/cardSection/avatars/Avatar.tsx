@@ -9,15 +9,16 @@ const Avatars = ({ start_on, due_on, assigneeAppended }: AvatarType) => {
 
       <div className="overflow-auto max-w-[120px]">
         <div className="flex -space-x-2">
-          {!!assigneeAppended?.length && assigneeAppended.map((user) => (
-            <Avatar
-              key={user.id}
-              src={user.avatar_url}
-              name={user.name}
-              size="25"
-              round={true}
-            />
-          ))}
+          {!!assigneeAppended?.length &&
+            assigneeAppended.map((user) => (
+              <Avatar
+                key={user.id}
+                src={user.avatar_url}
+                name={user.name}
+                size="25"
+                round={true}
+              />
+            ))}
         </div>
       </div>
     </div>

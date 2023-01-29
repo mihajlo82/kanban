@@ -3,13 +3,15 @@ import { addListToAllTasks } from "../../../../redux/slices/sectionsSlice";
 import nextId from "react-id-generator";
 import { AddColumFormProp } from "../../../../types/cardSectionType";
 import { TaskListType } from "../../../../types/sectionSliceType";
+import { ADD_COLUMN_ALERT } from "../../../../constants/names";
+import { AddColumFormDefaultProp } from "../../../../types/defaultProps/defaultProps";
 
 const AddColumnForm = ({ dispatch, setOpenModal }: AddColumFormProp) => {
   const [colName, setColName] = useState<string>("");
 
   const addNewColumn = () => {
     if (colName?.trim().length <= 0 || colName?.trim().length > 999) {
-      return window.alert("COLUMN NAME MUST BE BETWEEN 1-9999 CHARACTERS");
+      return window.alert(ADD_COLUMN_ALERT);
     }
     const data: TaskListType = {
       id: nextId(),
@@ -59,3 +61,4 @@ const AddColumnForm = ({ dispatch, setOpenModal }: AddColumFormProp) => {
 };
 
 export default AddColumnForm;
+AddColumnForm.defaultProps = AddColumFormDefaultProp;

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { StateTypes } from "../../../types/reducerType";
 import { BsFillTrashFill } from "react-icons/bs";
 import { TrashedProp } from "../../../types/cardSectionType";
+import { TrashSectionDefaultProp } from "../../../types/defaultProps/defaultProps";
 
 const TrashSection = ({ trashedVisible, setTrashedVisible }: TrashedProp) => {
   const itemForDelete = useSelector(
@@ -39,3 +40,4 @@ const TrashSection = ({ trashedVisible, setTrashedVisible }: TrashedProp) => {
 };
 
 export default TrashSection;
+TrashSection.defaultProps = TrashSectionDefaultProp;

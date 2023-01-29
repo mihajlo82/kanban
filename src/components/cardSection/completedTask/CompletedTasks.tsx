@@ -3,6 +3,7 @@ import BoxSingle from "../singleBox/BoxSingle";
 import { TaskType } from "../../../types/sectionSliceType";
 import { CompletedTasksProp } from "../../../types/cardSectionType";
 import { COMPLETED, TRASHED } from "../../../constants/names";
+import { CompletedTasksDefaultProp } from "../../../types/defaultProps/defaultProps";
 
 const CompletedTasks = ({
   completedTasks,
@@ -33,3 +34,4 @@ const CompletedTasks = ({
 };
 
 export default CompletedTasks;
+CompletedTasks.defaultProps =CompletedTasksDefaultProp;

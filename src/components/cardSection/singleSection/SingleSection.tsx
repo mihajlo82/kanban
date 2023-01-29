@@ -4,6 +4,7 @@ import BoxSingle from "../singleBox/BoxSingle";
 import { SingleSectionProp } from "../../../types/singleSectionType";
 import AddTaskModal from "./modal/AddTaskModal";
 import { useDispatch } from "react-redux";
+import { SingleSectionDefaultProp } from "../../../types/defaultProps/defaultProps";
 
 const SingleSection = ({ taskListItem }: SingleSectionProp) => {
   const dispatch = useDispatch();
@@ -49,14 +50,4 @@ const SingleSection = ({ taskListItem }: SingleSectionProp) => {
 };
 
 export default SingleSection;
-
-SingleSection.defaultProps = {
-  id: Math.ceil(Math.random() * 12346756 + 10),
-  name: "Completed",
-  open_tasks: 0,
-  completed_tasks: 0,
-  position: Math.ceil(Math.random() * 1000200 + 10),
-  is_completed: true,
-  is_trashed: true,
-  tasksAppended: [{ id: Math.ceil(Math.random() * 1000200 + 10) }],
-};
+SingleSection.defaultProps = SingleSectionDefaultProp;

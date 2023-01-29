@@ -1,14 +1,18 @@
 import Header from "./parts/Header";
 import FormAddTask from "./parts/FormAddTask";
+import { AddTaskModalDefaultProp } from "../../../../types/defaultProps/defaultProps";
+import { AddTaskModalProp } from "../../../../types/singleSectionType";
 
-const AddTaskModal = ({ taskListId, setOpenAddTask }: any) => {
-
+const AddTaskModal = ({ taskListId, setOpenAddTask }: AddTaskModalProp) => {
   return (
     <section className='w-screen fixed top-0 left-0 right-0 bottom-0 z-10 flex justify-center mx-auto p-6"'>
       <div className="mt-7 bg-white  rounded-xl w-[500px] max-h-[525px] overflow-auto shadow-lg dark:bg-gray-800 dark:border-gray-700 z-10 ">
-        <div className="p-4 sm:p-7"> 
+        <div className="p-4 sm:p-7">
           <Header />
-          <FormAddTask taskListId={taskListId} setOpenAddTask={setOpenAddTask}/>
+          <FormAddTask
+            taskListId={taskListId}
+            setOpenAddTask={setOpenAddTask}
+          />
         </div>
       </div>
 
@@ -21,3 +25,4 @@ const AddTaskModal = ({ taskListId, setOpenAddTask }: any) => {
 };
 
 export default AddTaskModal;
+AddTaskModal.defaultProps = AddTaskModalDefaultProp;

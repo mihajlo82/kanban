@@ -1,4 +1,5 @@
 import { allLabelsInit } from "../../../../../service/get_data";
+import { AssingeesDefaultProp } from "../../../../../types/defaultProps/defaultProps";
 
 const Labels = ({dispatchCustomReducer}:any) => {
     const addLabel = (label:any) =>  dispatchCustomReducer({type: 'ADD_LABEL', label: label});
@@ -17,4 +18,5 @@ const Labels = ({dispatchCustomReducer}:any) => {
   )
 }
 
-export default Labels
+export default Labels;
+Labels.defaultProps = AssingeesDefaultProp;
