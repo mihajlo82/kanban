@@ -1,9 +1,10 @@
+import { ADD_ASSIGNEES } from "../../../../../constants/names";
 import { allUsers } from "../../../../../service/get_data";
 import { AssingeesDefaultProp } from "../../../../../types/defaultProps/defaultProps";
 
 const Assignees = ({ dispatchCustomReducer }: any) => {
   const addAssignes = (assignee: any) =>
-    dispatchCustomReducer({ type: "ADD_ASSIGNEES", assignee: assignee });
+    dispatchCustomReducer({ type: ADD_ASSIGNEES, assignee: assignee });
 
   return (
     <div className="flex flex-col items-start">

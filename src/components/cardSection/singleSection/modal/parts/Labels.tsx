@@ -1,8 +1,9 @@
+import { ADD_LABEL } from "../../../../../constants/names";
 import { allLabelsInit } from "../../../../../service/get_data";
 import { AssingeesDefaultProp } from "../../../../../types/defaultProps/defaultProps";
 
 const Labels = ({dispatchCustomReducer}:any) => {
-    const addLabel = (label:any) =>  dispatchCustomReducer({type: 'ADD_LABEL', label: label});
+    const addLabel = (label:any) =>  dispatchCustomReducer({type: ADD_LABEL, label: label});
   return (
     <div className="flex items-center">
         <p className="font-bold	">Choose a label: </p>

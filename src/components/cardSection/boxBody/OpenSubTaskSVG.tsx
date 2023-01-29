@@ -1,8 +1,7 @@
-import React from "react";
 import { OpenSubTaskSVGProp } from "../../../types/cardSectionType";
 import { OpenSubtaskSVGdDefaultProp } from "../../../types/defaultProps/defaultProps";
 
-const OpenSubTaskSVG = ({open_subtasks}: OpenSubTaskSVGProp) => {
+const OpenSubTaskSVG = ({ open_subtasks }: OpenSubTaskSVGProp) => {
   return (
     <div className="relative flex items-center ml-2">
       <svg width="12" height="12" xmlns="http://www.w3.org/2000/svg">

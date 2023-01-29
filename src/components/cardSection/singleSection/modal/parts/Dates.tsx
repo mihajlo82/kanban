@@ -1,3 +1,4 @@
+import { END_DATE, START_DATE } from "../../../../../constants/names";
 import { AssingeesDefaultProp } from "../../../../../types/defaultProps/defaultProps";
 
 const Dates = ({ dispatchCustomReducer }: any) => {
@@ -11,7 +12,7 @@ const Dates = ({ dispatchCustomReducer }: any) => {
           type="date"
           onChange={(e) =>
             dispatchCustomReducer({
-              type: "START_DATE",
+              type: START_DATE,
               start_on: e.target.value,
             })
           }
@@ -25,7 +26,7 @@ const Dates = ({ dispatchCustomReducer }: any) => {
         <input
           type="date"
           onChange={(e) =>
-            dispatchCustomReducer({ type: "END_DATE", due_on: e.target.value })
+            dispatchCustomReducer({ type: END_DATE, due_on: e.target.value })
           }
         />
       </div>

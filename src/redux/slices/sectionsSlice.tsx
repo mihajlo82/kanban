@@ -1,8 +1,9 @@
 import { createSlice, current } from "@reduxjs/toolkit";
-import { TaskListType, TaskType } from "../../types/sectionSliceType";
+import { TaskType } from "../../types/sectionSliceType";
 import { getAllListTasks } from "../../service/get_data";
 import { getAllCompletedTasks } from "../../service/get_completed_tasks";
 import { isEndDateGreaterThanStartDate } from "../../utils/date/date_validator";
+import { ADD_TASK_ALERT, TASK_NAME_WARN } from "../../constants/names";
 
 const initialState = {
   taskList: getAllListTasks(),
@@ -30,14 +31,14 @@ export const sectionsSlice = createSlice({
       state.taskList.push(taskFinished);
     },
     addNewTask: (state = initialState, action) => {
-      if(action?.payload?.name?.trim() <= 0 || action?.payload?.name?.trim() > 9999 ) return window.alert('CHECK YOUR NAME! MUST BE BW 1-9999 CHARACTERS!')
+      if(action?.payload?.name?.trim() <= 0 || action?.payload?.name?.trim() > 9999 ) return window.alert(TASK_NAME_WARN)
       const isEndDateGreaterThanStart = isEndDateGreaterThanStartDate(
         action?.payload?.start_on,
         action?.payload?.due_on
       );
 
       if (!isEndDateGreaterThanStart)
-        return window.alert("END DATE MUST BE GREATER THAN START DATE!");
+        return window.alert(ADD_TASK_ALERT);
 
       state.taskList.map(
         (taskGroup) =>
