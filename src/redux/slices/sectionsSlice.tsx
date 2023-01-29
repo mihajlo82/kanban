@@ -30,6 +30,7 @@ export const sectionsSlice = createSlice({
       state.taskList.push(taskFinished);
     },
     addNewTask: (state = initialState, action) => {
+      if(action?.payload?.name?.trim() <= 0 || action?.payload?.name?.trim() > 9999 ) return window.alert('CHECK YOUR NAME! MUST BE BW 1-9999 CHARACTERS!')
       const isEndDateGreaterThanStart = isEndDateGreaterThanStartDate(
         action?.payload?.start_on,
         action?.payload?.due_on

@@ -1,7 +1,7 @@
 import moment from "moment";
 
 export const isEndDateGreaterThanStartDate = (startDate, endDate) => {
-    if ((startDate === null && endDate === null) || (endDate === null)) return true;
+    if ((startDate === null && endDate === null) || (endDate === null) || (startDate === null)) return true;
 
     if (moment(endDate).isSameOrAfter(startDate, 'year')) return true;
 
