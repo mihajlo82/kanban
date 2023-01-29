@@ -53,14 +53,14 @@ export interface AddColumFormProp {
 }
 
 export interface TrashedProp {
-  trashedVisible: boolean,
-  setTrashedVisible: React.Dispatch<React.SetStateAction<boolean>>
+  trashedVisible: boolean;
+  setTrashedVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface OpenSubTaskSVGProp {
-  open_subtasks?: number,
-  comments_count?: number
+  open_subtasks?: number;
+  comments_count?: number;
 }
 export interface LabelListProp {
-  labelsAppended: Array<LabelType>
+  labelsAppended: Array<LabelType>;
 }

@@ -67,31 +67,31 @@ export const SingleSectionDefaultProp = {
 };
 
 export const AddTaskModalDefaultProp = {
-    taskListId: Math.ceil(Math.random() * 12346756 + 10), 
-    setOpenAddTask: ()=>{}
-}
+  taskListId: Math.ceil(Math.random() * 12346756 + 10),
+  setOpenAddTask: () => {},
+};
 
 export const AssingeesDefaultProp = {
-    dispatchCustomReducer: ()=>{}
-}
+  dispatchCustomReducer: () => {},
+};
 
 export const TitleColumnDefaultProp = {
-    taskListItem: SingleSectionDefaultProp,
-    name: 'Unknown',
-    tasksAppendedLength: 0,
-    dispatch: ()=>{},
-}
+  taskListItem: SingleSectionDefaultProp,
+  name: "Unknown",
+  tasksAppendedLength: 0,
+  dispatch: () => {},
+};
 
 export const DotsMenuDefaultProp = {
-    taskListItem: SingleSectionDefaultProp,
-    dispatch: ()=>{}
-}
+  taskListItem: SingleSectionDefaultProp,
+  dispatch: () => {},
+};
 
 export const DotsButtonDefaultProp = {
-    setOpenMenu: ()=>{}
-} 
+  setOpenMenu: () => {},
+};
 
 export const TrashSectionDefaultProp = {
-    trashedVisible: true,
-    setTrashedVisible: ()=>{}
-} 
+  trashedVisible: true,
+  setTrashedVisible: () => {},
+};

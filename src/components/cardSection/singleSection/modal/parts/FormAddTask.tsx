@@ -27,6 +27,7 @@ const FormAddTask = ({ taskListId, setOpenAddTask }: FormAddTaskProp) => {
               setOpenAddTask(false);
             }}
             type="button"
+            aria-label="Add task"
             className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-blue-500 text-white text-sm"
           >
             Add

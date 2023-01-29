@@ -48,6 +48,7 @@ const AddColumnForm = ({ dispatch, setOpenModal }: AddColumFormProp) => {
             </div>
           </div>
           <button
+            aria-label="Save column"
             onClick={addNewColumn}
             type="button"
             className="py-3 px-4 rounded-md font-semibold bg-blue-500 text-white text-sm"

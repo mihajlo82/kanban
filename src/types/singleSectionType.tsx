@@ -9,10 +9,10 @@ export interface AddTaskModalProp {
 }
 
 export interface AssigneeProp {
-    dispatchCustomReducer: React.DispatchWithoutAction
-  }
+  dispatchCustomReducer: React.DispatchWithoutAction;
+}
 
-  export interface FormAddTaskProp {
-    taskListId: string | number,
-    setOpenAddTask: React.Dispatch<React.SetStateAction<boolean>> 
-  } 
+export interface FormAddTaskProp {
+  taskListId: string | number;
+  setOpenAddTask: React.Dispatch<React.SetStateAction<boolean>>;
+}

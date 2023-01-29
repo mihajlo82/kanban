@@ -5,7 +5,7 @@ import { formatDate } from "../../../utils/date/date_format";
 const Avatars = ({ start_on, due_on, assigneeAppended }: AvatarType) => {
   return (
     <div className="w-full flex justify-between items-center mt-3">
-      <h6 className="font-bold text-sm"> {formatDate(start_on, due_on)}</h6>
+      <p className="font-semibold text-sm"> {formatDate(start_on, due_on)}</p>
 
       <div className="overflow-auto max-w-[120px]">
         <div className="flex -space-x-2">

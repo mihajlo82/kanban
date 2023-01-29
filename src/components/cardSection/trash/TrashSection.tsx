@@ -16,13 +16,14 @@ const TrashSection = ({ trashedVisible, setTrashedVisible }: TrashedProp) => {
   return (
     <div className="fixed bottom-10 right-10 flex items-center">
       <div>
-        <div className="mr-2 p-2 rounded text-[white] text-md bg-[#a8a8a8] font-bold">
+        <div className="mr-2 p-2 rounded text-[white] text-md bg-[#6c6e6b] font-bold">
           Drag item to trash can for deleting
         </div>
 
         <button
           className="bg-[white] p-2 font-bold rounded mt-1 text-md"
           type="button"
+          aria-label="Toggle trashed section"
           onClick={() => setTrashedVisible((prev) => !prev)}
         >
           {trashedVisible ? "Hide" : "Show"} trashed section
