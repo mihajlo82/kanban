@@ -3,39 +3,21 @@ import TitleColumn from "../titleColumn/TitleColumn";
 import BoxSingle from "../singleBox/BoxSingle";
 import { SingleSectionProp } from "../../../types/singleSectionType";
 import AddTaskModal from "./modal/AddTaskModal";
-import { addItemToQueueForDelete } from "../../../redux/slices/sectionsSlice";
-import { useSelector, useDispatch } from "react-redux";
-import { StateTypes } from "../../../types/reducerType";
-import { removeTask } from "../../../redux/slices/sectionsSlice"; 
-import { BsFillTrashFill } from "react-icons/bs"
+import { useDispatch } from "react-redux";
 
 const SingleSection = ({ taskListItem }: SingleSectionProp) => {
-  const itemForDelete = useSelector(
-    (state: StateTypes) => state.sections.itemDragRemove
-  );
   const dispatch = useDispatch();
   const [openAddTask, setOpenAddTask] = useState<boolean>(false);
 
-  const {
-    id,
-    name,
-    open_tasks,
-    completed_tasks,
-    position,
-    is_completed,
-    is_trashed,
-    tasksAppended,
-  } = taskListItem;
-
-  const allowDrop = (e: any) => e.preventDefault();
-
-  const deleteItem = () => dispatch(removeTask(itemForDelete));
+  const { name, tasksAppended } = taskListItem;
   return (
     <div className="flex flex-col  flex-shrink-0 w-72 h-[100%]">
       <TitleColumn
         taskListItem={taskListItem}
         name={name}
-        tasksAppendedLength={tasksAppended.length}
+        tasksAppendedLength={
+          [...tasksAppended.filter((task) => !task.is_completed)].length
+        }
         dispatch={dispatch}
       />
 
@@ -62,18 +44,6 @@ const SingleSection = ({ taskListItem }: SingleSectionProp) => {
           setOpenAddTask={setOpenAddTask}
         />
       )}
-
-      <div className="fixed bottom-10 right-10 flex items-center">
-
-        <div className='mr-2 p-2 rounded text-[white] text-lg	bg-[#a8a8a8] text-bold'>Drag item to trash can for deleting</div>
-        <div
-          onDragOver={allowDrop}
-          onDrop={deleteItem}
-          className="p-5 rounded-md	bg-[white]"
-        >
-          <BsFillTrashFill className='text-[#ff1100] w-[30px] h-[30px]' /> 
-        </div>
-      </div>
     </div>
   );
 };

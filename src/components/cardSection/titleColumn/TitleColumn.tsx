@@ -14,8 +14,9 @@ const TitleColumn = ({
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
-    <div className="flex items-center flex-shrink-0 h-10 px-2 w-[273px] relative">
+    <div className="flex items-center flex-shrink-0 h-10 px-2 w-[273px] relative" onMouseLeave={()=> setOpenMenu(false)}>
       <span className="block text-sm font-semibold">
+
         {name} - ({tasksAppendedLength})
       </span>
 

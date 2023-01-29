@@ -4,8 +4,12 @@ import { StateTypes } from "../../types/reducerType";
 import { TaskListType } from "../../types/sectionSliceType";
 import CompletedTasks from "./completedTask/CompletedTasks";
 import AddNewSectionBtn from "./addSectionButton/AddNewSectionBtn";
+import TrashSection from "./trash/TrashSection";
+import { useState } from "react";
 
 const CardSections = () => {
+  const [trashedVisible, setTrashedVisible] = useState<boolean>(true);
+
   const taskListAll = useSelector(
     (state: StateTypes) => state.sections.taskList
   );
@@ -41,7 +45,14 @@ const CardSections = () => {
           deletedSection={false}
         />
 
-        <CompletedTasks completedTasks={deletedTasks} deletedSection={true} />
+        {trashedVisible && (
+          <CompletedTasks completedTasks={deletedTasks} deletedSection={true} />
+        )}
+
+        <TrashSection
+          trashedVisible={trashedVisible}
+          setTrashedVisible={setTrashedVisible}
+        />
       </div>
     </div>
   );

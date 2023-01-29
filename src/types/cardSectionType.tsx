@@ -51,3 +51,8 @@ export interface AddColumFormProp {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   dispatch?: any;
 }
+
+export interface TrashedProp {
+  trashedVisible: boolean,
+  setTrashedVisible: React.Dispatch<React.SetStateAction<boolean>>
+}

@@ -3,6 +3,7 @@ import { TitleColumnProp } from "../../../../types/cardSectionType";
 const DotsButton = ({ setOpenMenu }: TitleColumnProp) => {
   return (
     <button
+      onMouseOver={() => setOpenMenu(true)} 
       onClick={() => setOpenMenu((prev) => !prev)}
       className="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
     >

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { addListToAllTasks } from "../../../../redux/slices/sectionsSlice";
 import nextId from "react-id-generator";
 import { AddColumFormProp } from "../../../../types/cardSectionType";
+import { TaskListType } from "../../../../types/sectionSliceType";
 
 const AddColumnForm = ({ dispatch, setOpenModal }: AddColumFormProp) => {
   const [colName, setColName] = useState<string>("");
@@ -10,7 +11,7 @@ const AddColumnForm = ({ dispatch, setOpenModal }: AddColumFormProp) => {
     if (colName?.trim().length <= 0 || colName?.trim().length > 999) {
       return window.alert("COLUMN NAME MUST BE BETWEEN 1-9999 CHARACTERS");
     }
-    const data = {
+    const data: TaskListType = {
       id: nextId(),
       name: colName,
       open_tasks: 0,
