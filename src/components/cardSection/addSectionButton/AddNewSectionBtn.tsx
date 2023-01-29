@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
-import AddSectionModal from './modal/AddSectionModal';
+import { useState } from "react";
+import AddSectionModal from "./modal/AddSectionModal";
 
-// interface AddNewSectionProp {
-//   dispatch:  Dispatch<AnyAction>
-//}
-const AddNewSectionBtn = ({dispatch}:any) => {
-    const [openModal, setOpenModal] = useState<boolean>(false);
+const AddNewSectionBtn = ({ dispatch }: any) => {
+  const [openModal, setOpenModal] = useState<boolean>(false);
   return (
-    <div className="mx-20 flex  flex-shrink-0 ">
-        <button className="w-[30px] h-[30px] text-[30px] bg-white bold flex justify-center items-center" onClick={()=> setOpenModal(prev => !prev)}>+</button>
+    <div className="p-0 flex h-[35px] w-[60px]">
+      <button
+        type="button"
+        className="m-0 p-0 pb-1 drop-shadow-lg bg-white text-2xl font-bold flex justify-center items-center w-[60px] h-[35px] rounded-md mb-1"
+        onClick={() => setOpenModal((prev) => !prev)}
+      >
+        +
+      </button>
 
-        {openModal && <AddSectionModal dispatch={dispatch} setOpenModal={setOpenModal} /> }
+      {openModal && (
+        <AddSectionModal dispatch={dispatch} setOpenModal={setOpenModal} />
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default AddNewSectionBtn
+export default AddNewSectionBtn;

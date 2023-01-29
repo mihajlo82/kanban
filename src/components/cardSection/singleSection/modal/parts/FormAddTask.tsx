@@ -4,9 +4,9 @@ import Dates from "./Dates";
 import Assignees from "./Assignees";
 import useAddTaskReducer from "../useAddTaskReducer";
 import { addNewTask } from "../../../../../redux/slices/sectionsSlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-const FormAddTask = ({taskListId}:any) => {
+const FormAddTask = ({taskListId, setOpenAddTask}:any) => {
     const dispatch = useDispatch();
     const { stateCustomReducer, dispatchCustomReducer } = useAddTaskReducer({ taskListId }); 
   return (
@@ -19,9 +19,12 @@ const FormAddTask = ({taskListId}:any) => {
                 <Assignees dispatchCustomReducer={dispatchCustomReducer} />
 
                 <button
-                    onClick={()=>dispatch(addNewTask(stateCustomReducer))}
+                    onClick={()=>{
+                        dispatch(addNewTask(stateCustomReducer));
+                        setOpenAddTask(false)
+                    }}
                     type="button"
-                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm dark:focus:ring-offset-gray-800"
+                    className="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md font-semibold bg-blue-500 text-white text-sm"
                     >
                     Add
                 </button>

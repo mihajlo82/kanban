@@ -7,8 +7,9 @@ const Labels = ({dispatchCustomReducer}:any) => {
         <p className="font-bold	">Choose a label: </p>
         {allLabelsInit.map((label) => (
         <div
+            key={label.id}
             onClick={()=>addLabel(label)}
-            className={`w-[10px] h-[10px] rounded-full ml-2`}
+            className={`w-[14px] h-[14px] cursor-pointer rounded-full ml-2`}
             style={{ backgroundColor: label.color }}
         />
         ))}

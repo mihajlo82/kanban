@@ -1,15 +1,20 @@
-import { LabelType, TaskListType, TaskType, UserType } from "./sectionSliceType";
+import {
+  LabelType,
+  TaskListType,
+  TaskType,
+  UserType,
+} from "./sectionSliceType";
 
 export interface TitleColumnType {
-  name: string | '',
-  tasksAppendedLength: number | 0,
-  taskListItem?: TaskListType,
-  dispatch?: any
+  name: string | "";
+  tasksAppendedLength: number | 0;
+  taskListItem?: TaskListType;
+  dispatch?: any;
 }
 
 export interface BoxSingleType {
-  task: TaskType,
-  isDraggable: boolean
+  task: TaskType;
+  isDraggable: boolean;
 }
 
 export interface BoxTitleType {
@@ -23,13 +28,26 @@ export interface AvatarType {
 }
 
 export interface BoxBodyProp {
-  labelsAppended: Array<LabelType>,
-  comments_count: number,
-  open_subtasks: number
+  labelsAppended: Array<LabelType>;
+  comments_count: number;
+  open_subtasks: number;
 }
 
 export interface CompletedTasksProp {
-  completedTasks: Array<TaskType>,
-  deletedSection: boolean,
-  
+  completedTasks: Array<TaskType>;
+  deletedSection: boolean;
+}
+
+export interface TitleColumnProp {
+  setOpenMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export interface DotsMenuProp {
+  taskListItem: TaskListType | undefined;
+  dispatch: any;
+}
+
+export interface AddColumFormProp {
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  dispatch?: any;
 }

@@ -1,6 +1,7 @@
-import  { useReducer } from 'react';
+import { useReducer } from 'react';
+import nextId from "react-id-generator";
 
-const reducer = (state, action) => { 
+const reducer = (state, action) => {
 
     switch (action.type) {
         case 'NAME_TASK':
@@ -10,25 +11,28 @@ const reducer = (state, action) => {
         case 'END_DATE':
             return { ...state, due_on: action.due_on };
         case 'ADD_LABEL':
-            return { ...state, labelsAppended: [...state.labelsAppended, action.label]};
+            if (state.labelsAppended.some(labelItem => labelItem.id === action.label.id)) {
+                return { ...state, labelsAppended: [...state.labelsAppended.filter(labelItem => labelItem.id !== action.label.id)] };
+            }
+            return { ...state, labelsAppended: [...state.labelsAppended, action.label] };
         case 'ADD_ASSIGNEES':
-            console.log('addd ssignes');
-            console.log(action);
-            return {...state, assigneeAppended: [...state.assigneeAppended, action.assignee]};
+            if (state.assigneeAppended.some(user => user.id === action.assignee.id)) {
+                return { ...state, assigneeAppended: [...state.assigneeAppended.filter(user => user.id !== action.assignee.id)] };
+            }
+            return { ...state, assigneeAppended: [...state.assigneeAppended, action.assignee] };
         default:
             return state;
     }
-
 }
 
 const useAddTaskReducer = ({ taskListId }) => {
 
     const initialData = {
-        id: 12,
+        id: nextId(),
         name: '',
         open_tasks: 0,
         completed_tasks: 0,
-        position: 6,
+        position: Math.ceil((Math.random()*10000) + 10) ,
         is_completed: false,
         is_trashed: false,
         task_list_id: taskListId,

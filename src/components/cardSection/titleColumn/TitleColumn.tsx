@@ -1,45 +1,33 @@
 import { useState } from "react";
 import { TitleColumnType } from "../../../types/cardSectionType";
-import { completeTask } from "../../../redux/slices/sectionsSlice";
+import { completeTask, moveToTrash } from "../../../redux/slices/sectionsSlice";
+import { COMPLETED, TRASHED } from "../../../constants/names";
+import DotsButton from "./parts/DotsButton";
+import DotsMenu from "./parts/DotsMenu";
 
-const TitleColumn = ({ taskListItem, name, tasksAppendedLength, dispatch }: TitleColumnType) => {
+const TitleColumn = ({
+  taskListItem,
+  name,
+  tasksAppendedLength,
+  dispatch,
+}: TitleColumnType) => {
   const [openMenu, setOpenMenu] = useState<boolean>(false);
 
   return (
     <div className="flex items-center flex-shrink-0 h-10 px-2 w-[273px] relative">
       <span className="block text-sm font-semibold">
         {name} - ({tasksAppendedLength})
-      </span> 
+      </span>
 
-      <button
-        onClick={() => setOpenMenu((prev) => !prev)}
-        className="flex items-center justify-center w-6 h-6 ml-auto text-indigo-500 rounded hover:bg-indigo-500 hover:text-indigo-100"
-      >
-        <svg
-          className="h-4 fill-current text-grey-dark cursor-pointer"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-        >
-          <path d="M5 10a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4zm7 0a1.999 1.999 0 1 0 0 4 1.999 1.999 0 1 0 0-4z" />
-        </svg>
-      </button>
+      {name !== TRASHED && name !== COMPLETED && (
+        <DotsButton setOpenMenu={setOpenMenu} />
+      )}
 
-      {openMenu && (
-        <div className="absolute -bottom-14 w-[222px] -right-40 bg-white z-10 rounded-lg border-2	">
-          <div className="cursor-pointer hover:bg-violet-100 p-1 w-full flex flex-start pl-5" onClick={()=>dispatch(completeTask(taskListItem))}>
-            Complete
-          </div>
-          <div className="cursor-pointer hover:bg-violet-100 p-1 w-full flex flex-start pl-5">
-            Move to trash 
-          </div>
-        </div>
+      {openMenu && name !== TRASHED && name !== COMPLETED && (
+        <DotsMenu taskListItem={taskListItem} dispatch={dispatch} />
       )}
     </div>
   );
 };
 
 export default TitleColumn;
-TitleColumn.defaultProps = {
-  name: 'Completed', 
-  tasksAppendedLength: [{}]
-}

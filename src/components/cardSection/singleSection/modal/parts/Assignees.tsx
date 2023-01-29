@@ -9,7 +9,7 @@ const Assignees = ({dispatchCustomReducer}:any) => {
         <ul className="mt-2 max-h-[110px] overflow-auto">
         {allUsers.map((user) => {
             return (
-            <li className="flex" key={user.id}  onClick={()=> addAssignes(user)}>
+            <li className="flex cursor-pointer" key={user.id}  onClick={()=> addAssignes(user)}>
                 <img
                   className="h-[20px] w-[20px] rounded-full"
                   src={user.avatar_url}

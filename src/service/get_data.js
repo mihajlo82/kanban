@@ -1,8 +1,7 @@
 import ALL_DATA from '../data/data.json';
-
-let tasksListInit = ALL_DATA.task_lists.sort((a, b) => a.position - b.position);//.filter(task => !task.is_completed && !task.is_trashed);
+const tasksListInit = ALL_DATA.task_lists.sort((a, b) => a.position - b.position);
 export const allLabelsInit = ALL_DATA.labels;
-let allTasks = ALL_DATA.tasks.sort((a, b) => a.position - b.position);
+const allTasks = ALL_DATA.tasks.sort((a, b) => a.position - b.position);
 export const allUsers = ALL_DATA.users;
 
 export const getAllListTasks = () => {

@@ -8,7 +8,7 @@ const AddTaskModal = ({ taskListId, setOpenAddTask }: any) => {
       <div className="mt-7 bg-white  rounded-xl w-[500px] max-h-[525px] overflow-auto shadow-lg dark:bg-gray-800 dark:border-gray-700 z-10 ">
         <div className="p-4 sm:p-7"> 
           <Header />
-          <FormAddTask taskListId={taskListId}/>
+          <FormAddTask taskListId={taskListId} setOpenAddTask={setOpenAddTask}/>
         </div>
       </div>
 
